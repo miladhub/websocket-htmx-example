@@ -60,7 +60,7 @@ def main():
 
     port = 5000
     print(f"Server running at http://localhost:{port}")
-    print(f"WebSocket endpoint available at ws://localhost:{port}/myws")
+    print(f"WebSocket endpoint available at ws://localhost:{port}/ws")
     web.run_app(app, port=port)
 
 if __name__ == "__main__":
