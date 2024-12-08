@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx-ext-ws@2.0.1/ws.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<div hx-ext="ws" ws-connect="/ws" class="bg-white w-[600px] shadow-lg rounded-lg">
+    <div id="chat" class="p-4 space-y-2 overflow-y-auto h-80 border-b">
+    </div>
+    <form ws-send hx-on--ws-after-send="this.reset()" class="flex p-4 space-x-2">
+        <input id="input-box" type="text" name="message"
+               class="flex-1 p-2 border rounded-lg"
+               placeholder="Type your message..." required>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Send</button>
+    </form>
+</div>
+</body>
+</html>
